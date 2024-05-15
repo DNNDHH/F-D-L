@@ -130,6 +130,7 @@ class user:
         self.user_id_ = (int)(user_id)
         self.s_ = fgourl.NewSession()
         self.builder_ = ParameterBuilder(user_id, auth_key, secret_key)
+        self.userQuest = []
 
     def Post(self, url):
         res = fgourl.PostReq(self.s_, url, self.builder_.Build())
@@ -400,6 +401,9 @@ class user:
 
         DataWebhook.append(login)
 
+        for questInfo in data['cache']['replaced'].get('userQuest', []):
+            self.userQuest.append(questInfo)  # can implement a paydantic model here
+
         if 'seqLoginBonus' in data['response'][0]['success']:
             bonus_message = data['response'][0]['success']['seqLoginBonus'][0]['message']
 
@@ -464,16 +468,16 @@ class user:
         self.builder_.AddParameter('shopIdIndex', '1')
 
         if main.fate_region == "NA":
-            gachaSubId = GetGachaSubIdFP("NA")
+            gachaSubId = GetGachaSubIdFP("NA", self.userQuest)
             if gachaSubId is None:
                 gachaSubId = "0" 
             self.builder_.AddParameter('gachaSubId', gachaSubId)
             main.logger.info(f"\n ======================================== \n [+] 召唤卡池GachaSubId ： {gachaSubId} \n ======================================== " )
         else:
-            gachaSubId = GetGachaSubIdFP("JP")
+            gachaSubId = GetGachaSubIdFP("JP", self.userQuest)
             if gachaSubId is None:
                 gachaSubId = "0" 
-            self.builder_.AddParameter('gachaSubId', gachaSubId)
+            self.builder_.AddParameter('gachaSubId', str(gachaSubId))
             main.logger.info(f"\n ======================================== \n [+] 召唤卡池GachaSubId ： {gachaSubId} \n ======================================== " )
 
         data = self.Post(
