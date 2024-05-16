@@ -51,3 +51,4 @@ def GetGachaSubIdFP(region, userQuest: List = []):
             return gacha["id"]
         elif gacha["commonReleaseId"] == 0:
             return gacha["id"]
+    return 0  # If no event or commonReleaseId is matched, return 0
