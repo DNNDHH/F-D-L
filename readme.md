@@ -5,7 +5,7 @@
 🤓这么多年来…就目前来说有那么亿点点封号风险(^_-)-☆
 
 ⚠️注意事项
- - 2024年5月7日起 连接绑定 Aniplex Online 后的游戏账号文件 可能无法使用
+ - 2024年5月7日起 连接绑定 Aniplex Online 后的游戏账号文件  可以继续使用！没有影响！
 
 该修改版 项目源 及 原作者
 
@@ -33,14 +33,20 @@
 | --- | --- | --- | 
 | JP | `android/data/com.aniplex.fategrandorder/files/data/` | 54cc790bf952ea710ed7e8be08049531 |
 
+ADB命令复制到 下载 目录中 即 Download（可跳过部分系统的Root要求）
+```console
+adb shell cp /storage/emulated/0/Android/data/com.aniplex.fategrandorder/files/data/54cc790bf952ea710ed7e8be08049531 /storage/emulated/0/Download/
+```  
+-----------------
+
 # 2. 解密 游戏账号数据
 
 请小心处理这些数据，你不应将此数据传递给其他人，这是直接与服务器通信的关键数据，能直接盗你的号！
 
-1. 下载 FGO-ADET ，查看解密方法, 并解密游戏文件! [FGO-ADET](https://github.com/DNNDHH/FGO-ADET)
-2. userId 填写到 GAME_USERIDS 
-3. authKey 填写到 GAME_AUTHKEYS
-4. secretKey 填写到 GAME_SECRETKEYS
+1. 下载 FGO-ADET ，按照解密方法, 并解密游戏文件! [FGO-ADET](https://github.com/DNNDHH/FGO-ADET)
+2. 将userId.txt中的值 填写到 GAME_USERIDS 
+3. 将authKey.txt中的值 填写到 GAME_AUTHKEYS
+4. 将secretKey.txt中的值 填写到 GAME_SECRETKEYS
 
 # 3. 获取设备信息
 
