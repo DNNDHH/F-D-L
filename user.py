@@ -378,7 +378,7 @@ class user:
 
 
     def drawFP(self):
-        gachaSubId = GetGachaSubIdFP("JP")
+        gachaSubId = GetGachaSubIdFP(main.fate_region)
 
         if gachaSubId is None:
                gachaSubId = "0"
@@ -391,7 +391,7 @@ class user:
         self.builder_.AddParameter('shopIdIndex', '1')
         self.builder_.AddParameter('gachaSubId', gachaSubId)
 
-        main.logger.info(f"\n ======================================== \n [+] 友情卡池ID : {gachaSubId}\n ======================================== " )
+        main.logger.info(f"\n ======================================== \n [+] Friend Point Gacha ID : {gachaSubId}\n ======================================== " )
         data = self.Post(f'{fgourl.server_addr_}/gacha/draw?_userId={self.user_id_}')
         responses = data['response']
 
@@ -474,6 +474,9 @@ class user:
         # https://game.fate-go.jp/shop/purchase?
 
         url = 'https://git.atlasacademy.io/atlasacademy/fgo-game-data/raw/branch/JP/master/mstShop.json'
+        if main.fate_region == "NA":
+            url = 'https://git.atlasacademy.io/atlasacademy/fgo-game-data/raw/branch/NA/master/mstShop.json'
+        
         response = requests.get(url)
 
         fdata = response.json()
