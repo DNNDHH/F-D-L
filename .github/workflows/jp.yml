@@ -1,0 +1,33 @@
+name: FGO JP
+
+on:
+  schedule:
+    - cron: "30 19 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.11]
+    steps:
+    
+      - name: Gettings files from Repo
+        uses: actions/checkout@v2
+        
+      - name: Install Requeriments
+        run: |
+          pip install -r requirements.txt
+
+      - name: Execute main script 1
+        run: |
+          python3 main.py
+        env:
+          userIds: ${{ secrets.JP_USERIDS }}
+          authKeys: ${{ secrets.JP_AUTHKEYS }}
+          secretKeys: ${{ secrets.JP_SECRETKEYS }}
+          DEVICE_INFO_SECRET: ${{ secrets.DEVICE_INFO_SECRET }}
+          USER_AGENT_SECRET_2: ${{ secrets.USER_AGENT_SECRET_2 }}
+          FATE_REGION: ${{ secrets.JP_REGION }}
+          webhookDiscord: ${{ secrets.DISCORD_WEBHOOK }}
