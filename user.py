@@ -564,8 +564,8 @@ xCGlz9vV3+AAQ31C2phoyd/QhvpL85p39n6Ibg==
         self.builder_.AddParameter('num', '10')
         self.builder_.AddParameter('ticketItemId', '0')
         self.builder_.AddParameter('shopIdIndex', '1')
-        self.builder_.AddParameter('gachaSubId', gachaSubId)
-        #self.builder_.AddParameter('gachaSubId', '473')
+        #self.builder_.AddParameter('gachaSubId', gachaSubId)
+         self.builder_.AddParameter('gachaSubId', '482')
 
         data = self.Post(f'{fgourl.server_addr_}/gacha/draw?_userId={self.user_id_}')
         responses = data['response']
