@@ -601,7 +601,7 @@ xCGlz9vV3+AAQ31C2phoyd/QhvpL85p39n6Ibg==
 
     
     def LTO_drawFP(self):
-        #期間限定『「第2部 終章」開幕！ サーヴァント全騎ピックアップ召喚』にあわせて、過去に開催した6種類のフレンドポイント召喚を再び開催！
+        #『「春の新米マスター応援キャンペーン2026！」ピックアップ召喚』期間 2026年3月30日(月) 18:00～4月13日(月) 12:59まで
         
         def setup_parameters(gachaId, gachaSubId):
             self.builder_.AddParameter('storyAdjustIds', '[]')
@@ -612,7 +612,7 @@ xCGlz9vV3+AAQ31C2phoyd/QhvpL85p39n6Ibg==
             self.builder_.AddParameter('shopIdIndex', '1')
             self.builder_.AddParameter('gachaSubId', gachaSubId)
 
-        gachaIds = ['14', '15', '16', '17', '18', '19']
+        gachaIds = ['20', '21', '22', '23', '24', '25']
         gachaSubIds = ['4', '4', '2', '2', '1', '1']
         for gachaId, gachaSubId in zip(gachaIds, gachaSubIds):
             time.sleep(2)
