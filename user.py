@@ -613,7 +613,7 @@ xCGlz9vV3+AAQ31C2phoyd/QhvpL85p39n6Ibg==
             self.builder_.AddParameter('gachaSubId', gachaSubId)
 
         gachaIds = ['20', '21', '22', '23', '24', '25']
-        gachaSubIds = ['4', '4', '2', '2', '1', '1']
+        gachaSubIds = ['8', '8', '4', '4', '2', '2']
         for gachaId, gachaSubId in zip(gachaIds, gachaSubIds):
             time.sleep(2)
             setup_parameters(gachaId, gachaSubId)
