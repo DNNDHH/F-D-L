@@ -67,7 +67,7 @@ def main():
                 instance.drawFP()
                 time.sleep(1)
                 #instance.LTO_Gacha()
-                instance.LTO_drawFP()
+                #instance.LTO_drawFP()
 
             
                 
